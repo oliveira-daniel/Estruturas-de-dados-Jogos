@@ -31,7 +31,7 @@ public class Job : MonoBehaviour
         if (!timeCounter.IsActive()) 
             timeCounter.gameObject.SetActive(true);
         // Decrescer o tempo de forma aleatória
-        remainingTime.fillAmount -= Random.Range(0f, 0.005f);
+        remainingTime.fillAmount -= Random.Range(0f, 0.008f);
     }
 
 }

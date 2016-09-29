@@ -7,7 +7,7 @@ public class JobManager : MonoBehaviour
 {
     public float SimulTime { private set; get; }
     [SerializeField]
-    private Text textTime;
+    private Text textTime, textJobsCount;
     [SerializeField]
     private GameObject jobObject;
     private Job actualJob;
@@ -46,6 +46,7 @@ public class JobManager : MonoBehaviour
     void AtualizarHUD()
     {
         textTime.text = ((int)SimulTime).ToString();
+		textJobsCount.text = "Jobs: " + jobList.Count.ToString();
     }
 
     void ProcessActualJob()
