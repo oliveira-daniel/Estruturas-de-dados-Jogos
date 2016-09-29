@@ -14,6 +14,7 @@ public class JobManager : MonoBehaviour
     private List<GameObject> jobList;
     [SerializeField]
     private Sprite[] jobSprites;
+	private int totalJobs;
 
     // Use this for initialization
     void Start()
@@ -46,7 +47,7 @@ public class JobManager : MonoBehaviour
     void AtualizarHUD()
     {
         textTime.text = ((int)SimulTime).ToString();
-		textJobsCount.text = "Jobs: " + jobList.Count.ToString();
+		textJobsCount.text = "Jobs: " + jobList.Count.ToString() + " / " + totalJobs;
     }
 
     void ProcessActualJob()
@@ -67,5 +68,6 @@ public class JobManager : MonoBehaviour
         job.GetComponent<Job>().jobSprite = jobSprites[jobType];
         job.transform.SetParent(transform.FindChild("JobPanel"));
         jobList.Add(job);
+		totalJobs++;
     }
 }
