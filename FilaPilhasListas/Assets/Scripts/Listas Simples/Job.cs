@@ -5,7 +5,7 @@ using System.Collections;
 public class Job : MonoBehaviour
 {
     [SerializeField]
-    private Image remainingTime;
+    private Image remainingTime, timeCounter;
     private Image jobIcon;
     public Sprite jobSprite;
 
@@ -20,6 +20,7 @@ public class Job : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        timeCounter.gameObject.SetActive(false);
         remainingTime.fillAmount = 1f;
         jobIcon = transform.FindChild("JobIcon").GetComponent<Image>();
         jobIcon.sprite = jobSprite;
@@ -27,6 +28,8 @@ public class Job : MonoBehaviour
 
     public void ProcessJob()
     {
+        if (!timeCounter.IsActive()) 
+            timeCounter.gameObject.SetActive(true);
         // Decrescer o tempo de forma aleatória
         remainingTime.fillAmount -= Random.Range(0f, 0.01f);
     }
